@@ -1,4 +1,4 @@
-//Data Types 
+//Data Types
 
 /*
     Javascript have a 2 types datatype
