@@ -34,28 +34,48 @@
 
 // Factory Pattern
 
-const rectFactoryPattern = function (width, height) {
-    return {
-        width: width,
-        height: height,
+// const rectFactoryPattern = function (width, height) {
+//     return {
+//         width: width,
+//         height: height,
     
-        draw: function () {
-            console.log('I am a draw method');
-        },
+//         draw: function () {
+//             console.log('I am a draw method');
+//         },
     
-        printProperties: function () {
-            console.log('My Width is ' + this.width);
-            console.log('My Height is ' + this.height);
-        }
+//         printProperties: function () {
+//             console.log('My Width is ' + this.width);
+//             console.log('My Height is ' + this.height);
+//         }
+//     }
+// }
+
+
+// const rectFactP1 = rectFactoryPattern(40, 20)
+// rectFactP1.draw()
+// rectFactP1.printProperties()
+
+
+// const rectFactP2 = rectFactoryPattern(200, 300)
+// rectFactP2.draw()
+// rectFactP2.printProperties()
+
+
+// Constructor Pattern
+
+const Rectangle = function (width, height) {
+    this.width = width
+    this.height = height
+
+    this.draw = function () {
+        this.printProperties()
+    }
+
+    this.printProperties = function () {
+        console.log('My Width is ' + this.width)
+        console.log('My Width is ' + this.height)
     }
 }
 
-
-const rectFactP1 = rectFactoryPattern(40, 20)
-rectFactP1.draw()
-rectFactP1.printProperties()
-
-
-const rectFactP2 = rectFactoryPattern(200, 300)
-rectFactP2.draw()
-rectFactP2.printProperties()
+const rect1 = new Rectangle(39, 32)
+rect1.draw()
