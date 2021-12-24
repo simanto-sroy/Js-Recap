@@ -36,17 +36,17 @@
 
 // const rectFactoryPattern = function (width, height) {
 //     return {
-//         width: width,
-//         height: height,
+        // width: width,
+        // height: height,
     
-//         draw: function () {
-//             console.log('I am a draw method');
-//         },
+        // draw: function () {
+        //     console.log('I am a draw method');
+        // },
     
-//         printProperties: function () {
-//             console.log('My Width is ' + this.width);
-//             console.log('My Height is ' + this.height);
-//         }
+        // printProperties: function () {
+        //     console.log('My Width is ' + this.width);
+        //     console.log('My Height is ' + this.height);
+        // }
 //     }
 // }
 
@@ -63,8 +63,36 @@
 
 // Constructor Pattern
 
-const Rectangle = function (width, height) {
-    this.width = width
+// const Rectangle = function (width, height) {
+    // this.width = width
+    // this.height = height
+
+    // this.draw = function () {
+    //     this.printProperties()
+    // }
+
+    // this.printProperties = function () {
+    //     console.log('My Width is ' + this.width)
+    //     console.log('My Width is ' + this.height)
+    // }
+// }
+
+// const rect1 = new Rectangle(39, 32)
+// rect1.draw()
+
+
+// Function Is an Object
+
+function test() {
+    console.log('something...')
+}
+
+// test()
+
+
+const Rect = new Function('width', 'height', 
+    
+   `this.width = width
     this.height = height
 
     this.draw = function () {
@@ -75,7 +103,8 @@ const Rectangle = function (width, height) {
         console.log('My Width is ' + this.width)
         console.log('My Width is ' + this.height)
     }
-}
 
-const rect1 = new Rectangle(39, 32)
-rect1.draw()
+`)
+
+const rect = new Rect(10, 30)
+console.log(rect)
