@@ -83,28 +83,41 @@
 
 // Function Is an Object
 
-function test() {
-    console.log('something...')
+// function test() {
+//     console.log('something...')
+// }
+
+// // test()
+
+
+// const Rect = new Function('width', 'height',
+    
+//    `this.width = width
+//     this.height = height
+
+//     this.draw = function () {
+//         this.printProperties()
+//     }
+
+//     this.printProperties = function () {
+//         console.log('My Width is ' + this.width)
+//         console.log('My Width is ' + this.height)
+//     }
+
+// `)
+
+// const rect = new Rect(10, 30)
+// console.log(rect)
+
+
+// Call, Apply, Bind Method
+
+function myFunc(a, b) {
+    console.log(this)
+    console.log(this.c + this.d + a + b )
 }
 
-// test()
-
-
-const Rect = new Function('width', 'height', 
-    
-   `this.width = width
-    this.height = height
-
-    this.draw = function () {
-        this.printProperties()
-    }
-
-    this.printProperties = function () {
-        console.log('My Width is ' + this.width)
-        console.log('My Width is ' + this.height)
-    }
-
-`)
-
-const rect = new Rect(10, 30)
-console.log(rect)
+myFunc.call({c: 30, d: 40}, 20, 21)
+myFunc.apply({c: 30, d: 40}, [20, 21])
+let BindRslt = myFunc.bind({ c: 30, d: 10 }, 20, 10)
+BindRslt()
