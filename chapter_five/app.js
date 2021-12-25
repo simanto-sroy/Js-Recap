@@ -151,7 +151,7 @@
 // console.log(obj)
 
 
-// Abstractions
+// Getter Setter
 
 var Reactangle = function (width, height) {
     this.width = width
@@ -161,6 +161,10 @@ var Reactangle = function (width, height) {
         x: 30,
         y: 20
     }
+
+    // this.getPosition = function () {
+    //     return position
+    // }
 
     var printproperties = function () {
         console.log('My width is : ' + this.width)
@@ -173,7 +177,21 @@ var Reactangle = function (width, height) {
         console.log('My Position X is :' + position.x)
         console.log('My Position Y is :' + position.y)
     }
+
+    Object.defineProperty(this, 'position',{
+        get: function () {
+            return position
+        },
+        set: function (value) {
+            position = value
+        }
+    })
 }
 
 var rect = new Reactangle(200, 100)
 rect.draw()
+rect.position = {
+    x: 300,
+    y: 100
+}
+console.log(rect.position)
