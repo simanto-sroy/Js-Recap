@@ -64,17 +64,17 @@
 // Constructor Pattern
 
 // const Rectangle = function (width, height) {
-    // this.width = width
-    // this.height = height
+//     this.width = width
+//     this.height = height
 
-    // this.draw = function () {
-    //     this.printProperties()
-    // }
+//     this.draw = function () {
+//         this.printProperties()
+//     }
 
-    // this.printProperties = function () {
-    //     console.log('My Width is ' + this.width)
-    //     console.log('My Width is ' + this.height)
-    // }
+//     this.printProperties = function () {
+//         console.log('My Width is ' + this.width)
+//         console.log('My Width is ' + this.height)
+//     }
 // }
 
 // const rect1 = new Rectangle(39, 32)
@@ -126,26 +126,54 @@
 // Pass by Value Pass by Refferance
 // Call by Value Call by Refferance
 
-var n = 20
+// var n = 20
 
-function MyNum(n) {
-    n = n + 100
-    console.log(n)
+// function MyNum(n) {
+//     n = n + 100
+//     console.log(n)
+// }
+
+// MyNum(n)
+// console.log(n)
+
+// var obj = {
+//     a: 20,
+//     b: 30
+// }
+
+// function MyObj(obj) {
+//     obj.a = obj.a + 100
+//     obj.b = obj.b + 200
+//     console.log(obj)
+// }
+
+// MyObj(obj)
+// console.log(obj)
+
+
+// Abstractions
+
+var Reactangle = function (width, height) {
+    this.width = width
+    this.height = height
+
+    var position = {
+        x: 30,
+        y: 20
+    }
+
+    var printproperties = function () {
+        console.log('My width is : ' + this.width)
+        console.log('My height is : ' + this.height)
+    }.bind(this)
+
+    this.draw = function () {
+        console.log('I am Reactangle')
+        printproperties()
+        console.log('My Position X is :' + position.x)
+        console.log('My Position Y is :' + position.y)
+    }
 }
 
-MyNum(n)
-console.log(n)
-
-var obj = {
-    a: 20,
-    b: 30
-}
-
-function MyObj(obj) {
-    obj.a = obj.a + 100
-    obj.b = obj.b + 200
-    console.log(obj)
-}
-
-MyObj(obj)
-console.log(obj)
+var rect = new Reactangle(200, 100)
+rect.draw()
