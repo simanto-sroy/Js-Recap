@@ -112,12 +112,40 @@
 
 // Call, Apply, Bind Method
 
-function myFunc(a, b) {
-    console.log(this)
-    console.log(this.c + this.d + a + b )
+// function myFunc(a, b) {
+//     console.log(this)
+//     console.log(this.c + this.d + a + b )
+// }
+
+// myFunc.call({c: 30, d: 40}, 20, 21)
+// myFunc.apply({c: 30, d: 40}, [20, 21])
+// let   = myFunc.bind({ c: 30, d: 10 }, 20, 10)
+// BindRslt()
+
+
+// Pass by Value Pass by Refferance
+// Call by Value Call by Refferance
+
+var n = 20
+
+function MyNum(n) {
+    n = n + 100
+    console.log(n)
 }
 
-myFunc.call({c: 30, d: 40}, 20, 21)
-myFunc.apply({c: 30, d: 40}, [20, 21])
-let BindRslt = myFunc.bind({ c: 30, d: 10 }, 20, 10)
-BindRslt()
+MyNum(n)
+console.log(n)
+
+var obj = {
+    a: 20,
+    b: 30
+}
+
+function MyObj(obj) {
+    obj.a = obj.a + 100
+    obj.b = obj.b + 200
+    console.log(obj)
+}
+
+MyObj(obj)
+console.log(obj)
